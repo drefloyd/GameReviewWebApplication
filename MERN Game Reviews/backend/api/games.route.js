@@ -6,7 +6,7 @@ const router = express.Router() // creates the different routes people can go to
 
 router.route("/").get(GamesCtrl.apiGetGames)    // url to get games
 router.route("/id/:id").get(GamesCtrl.apiGetGamesById)    
-router.route("/consoles").get(GamesCtrl.apiGetGamesPrice)    
+router.route("/prices").get(GamesCtrl.apiGetGamesPrice)    
 
 router
     .route("/review")
