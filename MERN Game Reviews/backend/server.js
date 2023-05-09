@@ -1,14 +1,13 @@
-import  express from "express";
+import express from "express"
 import cors from "cors"
-import games from "./api/games.route.js"    // will be where we get the games from
+import games from "./api/games.route.js"
 
-const app = express()   // makes server
+const app = express()
 
-// things that express will use
-app.use(cors())    // uses the cors module
-app.use(express.json()) // allows server to accept json in the body of the request
+app.use(cors())
+app.use(express.json())
 
-app.use("/api/v1/games", games)    // will be the url people go to 
-app.use("*", (req, res) => res.status(404).json('not found'))  // if somone enters anything other than the url return this error page
+app.use("/api/v1/games", games)
+app.use("*", (req, res) => res.status(404).json({ error: "not found"}))
 
 export default app
